@@ -3,32 +3,45 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use League\CommonMark\Extension\Table\Table;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+
+            $table->string('id')->unique();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('role');
+            $table->integer('state');
             $table->rememberToken();
-            $table->timestamps();
+
+            $table->string('expertise_area')->nullable();
+            $table->string('employee_type')->nullable();
+            $table->string('managerial_capacity')->nullable();
+            $table->string('employee_category')->nullable();
+            $table->string('designation')->nullable();
+            $table->string('level')->nullable();
+            
+
+            $table->string('sbu')->nullable();
+            $table->string('partner')->nullable();
+            $table->string('hr')->nullable();
+            $table->string('team')->nullable();
+            $table->string('previous_team')->nullable();
+
+            $table->date('joining_date')->nullable();
+            $table->date('confirmation_date')->nullable();
+            $table->date('career_start_date')->nullable();
+
+            $table->string('blood_group')->nullable();
+            $table->integer('engagement')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');
