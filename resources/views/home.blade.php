@@ -29,7 +29,7 @@
                 <th>Level</th>
             </tr>
         </thead>
-        <div class="card card-widget widget-user-2">
+        {{-- <div class="card card-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-warning">
               <div class="widget-user-image">
@@ -66,7 +66,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> --}}
         <livewire:users />
     </table>
 </div>  

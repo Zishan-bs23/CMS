@@ -46,10 +46,14 @@
 
             <td>
                 @if ($field === $idx.'.partner')
-                    <x-adminlte-input 
-                    name="partner" 
-                    wire:model.defer="users.{{ $idx }}.partner" 
-                    @keyup.enter="$wire.field === '{{ $idx }}.partner' ? $wire.save({{ $idx }}) : null" />
+                    <x-adminlte-select-bs
+                    name="partner"
+                    wire:model.defer="users.{{ $idx }}.partner"
+                    @click.away="$wire.field === '{{ $idx }}.partner' ? $wire.save({{ $idx }}) : null" >
+                        @foreach ($partners as $partner)
+                            <option value="{{ $partner }}">{{ $partner }}</option>
+                        @endforeach
+                    </x-adminlte-select-bs>
                 @else
                     <div wire:click="$set('field','{{ $idx }}.partner')">
                         {{ $user['partner'] }}
@@ -85,10 +89,14 @@
 
             <td>
                 @if ($field === $idx.'.sbu')
-                    <x-adminlte-input 
-                    name="sbu" 
-                    wire:model.defer="users.{{ $idx }}.sbu" 
-                    @keyup.enter="$wire.field === '{{ $idx }}.sbu' ? $wire.save({{ $idx }}) : null" />
+                    <x-adminlte-select-bs
+                    name="sbu"
+                    wire:model.defer="users.{{ $idx }}.sbu"
+                    @click.away="$wire.field === '{{ $idx }}.sbu' ? $wire.save({{ $idx }}) : null" >
+                        @foreach ($sbus as $sbu)
+                            <option value="{{ $sbu }}">{{ $sbu }}</option>
+                        @endforeach
+                    </x-adminlte-select-bs>
                 @else
                     <div wire:click="$set('field','{{ $idx }}.sbu')">
                         {{ $user['sbu'] }}

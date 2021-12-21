@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {   
         return view('home', [
-            'users' => User::all()
+            'sbus' => User::all()->pluck('sbu')->unique()->toArray()
         ]);
     }
 

@@ -24,12 +24,13 @@ class UserFactory extends Factory
             'managerial_capacity' => $this->faker->randomElement(['Managers', 'Others', 'Self', 'N/A']),
             'employee_category' => $this->faker->randomElement(['Contractual', 'Permanent', 'Probation']),
             'designation' => $this->faker->randomElement(['Software Engineer', 'UI/UX Designer', 'BA', 'Trainee']),
+            'work_type' => $this->faker->randomElement(['Billable', 'Billable(investment)', 'Non-billable(L&D)', 'Non-billable(Trainee)', 'Non-billable(Bench)']),
             'level' => $this->faker->randomElement(['IC3', 'IC3B', 'M3', 'M3B']),
 
             'sbu' => $this->faker->randomElement(['Anupam Saha', 'Asif Ul Haque', 'MJ Ferdous', 'Raisul Islam', 'Support']),
             'partner' => $this->faker->randomElement(['Mizanur Rahman', 'MJ Ferdous', 'Support']),
             'hr' => $this->faker->randomElement(['Nayem', 'Sojib', 'Siyam', 'Sohel', 'Support', 'Tori']),
-            'team' => $this->faker->randomElement(['GLPG', 'Hungry Naki', 'GP', 'ML', 'Support']),
+            'team' => $this->faker->randomElement(['GLPG', 'Hungry Naki', 'GP', 'ML', 'Support','Bench']),
             'previous_team' => $this->faker->randomElement(['GLPG', 'Hungry Naki', 'GP', 'ML', 'Support']),
             
             'joining_date' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
@@ -38,6 +39,16 @@ class UserFactory extends Factory
 
             'blood_group' => $this->faker->randomElement(['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']),
             'engagement' => $this->faker->numberBetween($min=50, $max=100),
+
+
+            'last_performance' => $this->faker->randomElement(['Need Improvement', 'Meet Expectation Very Well', 'Exceeding Expectations Heavily', 'N/A']),
+            'last_review' => $this->faker->randomElement(['Yes', 'No', 'N/A']),
+            'comments' => $this->faker->randomElement(['very good developer', 'Lacks concentration', 'N/A']),
+
+            'plan_1' => $this->faker->randomElement(['Warning', 'Bench', 'N/A', 'L&D']),
+            'plan_2' => $this->faker->randomElement(['Warning', 'Bench', 'N/A', 'L&D']),
+            'current_status' => $this->faker->randomElement(['Bench', 'N/A', 'L&D']),
+            'available_from' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
         ];
     }
 

@@ -11,6 +11,13 @@ class Users extends Component
     public $index = null;
     public $field = null;
     public $users = [];
+    public $sbus,$partners,$hrs,$techs;
+
+    public function mount() {
+        $this->sbus = User::all()->pluck('sbu')->unique()->toArray();
+        $this->partners = User::all()->pluck('partner')->unique()->toArray();
+        $this->hrs = User::all()->pluck('hr')->unique()->toArray();
+    }
 
     protected $listeners = [
         'refresh' => '$refresh'
@@ -56,7 +63,10 @@ class Users extends Component
         $this->users = User::all()->toArray();
 
         return view('livewire.users', [
-            'users' => $this->users
+            'users' => $this->users,
+            'partners' => $this->partners,
+            'sbus' => $this->sbus,
+            'hrs' => $this->hrs
         ]);
     }
 }

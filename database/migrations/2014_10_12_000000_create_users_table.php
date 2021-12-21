@@ -24,12 +24,14 @@ class CreateUsersTable extends Migration
             $table->string('managerial_capacity')->nullable();
             $table->string('employee_category')->nullable();
             $table->string('designation')->nullable();
+            $table->string('work_type')->nullable();
             $table->string('level')->nullable();
             
 
             $table->string('sbu')->nullable();
             $table->string('partner')->nullable();
             $table->string('hr')->nullable();
+            $table->string('mm')->nullable();
             $table->string('team')->nullable();
             $table->string('previous_team')->nullable();
 
@@ -39,6 +41,15 @@ class CreateUsersTable extends Migration
 
             $table->string('blood_group')->nullable();
             $table->integer('engagement')->nullable();
+
+            $table->string('last_performance')->nullable();
+            $table->string('last_review')->nullable();
+            $table->text('comments')->nullable();
+
+            $table->string('plan_1')->nullable();
+            $table->string('plan_2')->nullable();
+            $table->string('current_status')->nullable();
+            $table->string('available_from')->nullable();
         });
     }
 
